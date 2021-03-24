@@ -51,7 +51,7 @@
             <div class="noprint">
                 <hr>
                 <ul class="list-inline">
-                    <li><a href="">Footer link</a></li>
+                    <li><a href="<?php echo base_url(); ?>">CellKulture</a></li>
                     <li>.</li>
                     <li>Version 0.2</li>
                     <li>.</li>
