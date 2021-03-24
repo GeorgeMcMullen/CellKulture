@@ -7,10 +7,12 @@ Track Your Cell and Tissue Cultures. CellKulture tracks cell cultures from the d
 ## Installation
 
 1. Use your SQL management tool to run the SQL DB file located in the /app/db/ folder. If you're using a different name for your database or a table prefix, you will need to edit the SQL file to change the database and table names.
-2. Place the app folder into an accessible area on your server. You may or may not need to include the .htaccess file, which contains additions for mod_rewrite for PHP. You may also need to update app/application/config/database.php and application/models/cold_model.php.
+2. Place the app folder into an accessible area on your server. You may or may not need to include the .htaccess file, which contains additions for mod_rewrite for PHP. You may also need to update app/application/config/database.php and app/application/models/cold_model.php.
 3. navigate to https://[YOUR-SERVER]/[BASE-FOLDER]/app/
 4. Login with username: admin@gmail.com and password: admin
 5. Done
+
+Also note that this product also includes a reference to Google Analytics, which has been commented out. You may wish to uncomment it and change the analytics ID to your own by editing app/application/views/layouts/default.php.
 
 ###### Optional
 

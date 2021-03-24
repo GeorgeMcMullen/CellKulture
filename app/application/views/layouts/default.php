@@ -32,6 +32,7 @@
             }; 
         </script> 
         <script src="<?php echo base_url('assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"') ?>"></script>
+<!--
         <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -42,6 +43,7 @@
   ga('send', 'pageview');
 
 </script>
+-->
     </head>
     <body>
         {menu}
