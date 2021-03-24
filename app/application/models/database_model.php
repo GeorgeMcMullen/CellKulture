@@ -8,7 +8,7 @@ class Database_model extends CI_Model {
     public function is_up_to_date()
     {
         // Check if settings table has been defined - if not it's version 1.0
-        if(!$this->table_exists('settings'))
+        if(!$this->db->table_exists('settings'))
             return false;
         
         // Get current database version from the settings table
@@ -34,7 +34,7 @@ class Database_model extends CI_Model {
             $this->db->trans_start();
             
             //DROP TABLE transport
-            if($this->table_exists('transport'))
+            if($this->db->table_exists('transport'))
                 $this->dbforge->drop_table('transport');
             
             //ALTER TABLE  `task` ADD  `parent` INT UNSIGNED NOT NULL AFTER  `id`;
@@ -46,7 +46,7 @@ class Database_model extends CI_Model {
                 $this->db->query('ALTER TABLE  `task_comments` ADD  `project` INT UNSIGNED NOT NULL AFTER  `id`');
             
             //CREATE TABLE settings
-            if(!$this->table_exists('settings')) {
+            if(!$this->db->table_exists('settings')) {
                 $fields = array(
                     'setting_id' => array(
                         'type' => 'INT',
@@ -90,7 +90,7 @@ class Database_model extends CI_Model {
             $this->db->trans_start();
             
             // Create new task table
-            if($this->table_exists('task_tmp'))
+            if($this->db->table_exists('task_tmp'))
                 $this->dbforge->drop_table('task_tmp');
             
             if(!$this->field_exists('task', 'task_id')) {
@@ -195,7 +195,7 @@ class Database_model extends CI_Model {
             }
             
             // Create new task table
-            if($this->table_exists('task_comments_tmp'))
+            if($this->db->table_exists('task_comments_tmp'))
                 $this->dbforge->drop_table('task_comments_tmp');
                 
             if(!$this->field_exists('task_comments', 'task_comments_id')) {
@@ -254,7 +254,7 @@ class Database_model extends CI_Model {
             }
             
             //CREATE TABLE task_history
-            if(!$this->table_exists('task_history')) {
+            if(!$this->db->table_exists('task_history')) {
                 $fields = array(
                     'task_history_id' => array(
                         'type' => 'INT',
@@ -384,7 +384,7 @@ class Database_model extends CI_Model {
                 $this->db->query('ALTER TABLE  `task` ADD  `start_date` DATE NULL AFTER  `duration`');
 
             //CREATE TABLE task_predecessor
-            if(!$this->table_exists('task_predecessor')) {
+            if(!$this->db->table_exists('task_predecessor')) {
                 $fields = array(
                     'task_predecessor_id' => array(
                         'type' => 'INT',
@@ -450,7 +450,7 @@ class Database_model extends CI_Model {
                 $this->dbforge->drop_column('task', 'start_date');
 
             //DROP TABLE task_predecessor
-            if($this->table_exists('task_predecessor'))
+            if($this->db->table_exists('task_predecessor'))
                 $this->dbforge->drop_table('task_predecessor');
             
             //ALTER TABLE  `task` ADD  `due_date` DATE NULL AFTER  `priority`;
