@@ -4,7 +4,7 @@ class Profile extends CI_Controller {
     
     private $error = false;
     
-    function Profile()
+    function __construct()
     {
         parent::__construct();
         

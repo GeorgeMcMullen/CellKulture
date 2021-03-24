@@ -4,7 +4,7 @@ class Freezer_box extends CI_Controller {
     
     private $error = false;
     
-    function Freezer_box()
+    function __construct()
     {
         parent::__construct();
         

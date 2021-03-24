@@ -4,7 +4,7 @@ class Freezer_vial extends CI_Controller {
     
     private $error = false;
     
-    function Freezer_vial()
+    function __construct()
     {
         parent::__construct();
         

@@ -5,7 +5,7 @@ class User extends CI_Controller {
     private $LEVEL;
     private $error = false;
         
-    function User()
+    function __construct()
     {
         parent::__construct();
         

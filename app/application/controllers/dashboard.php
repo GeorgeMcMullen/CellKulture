@@ -2,7 +2,7 @@
 
 class Dashboard extends CI_Controller {
     
-    function Dashboard()
+    function __construct()
     {
         parent::__construct();
         

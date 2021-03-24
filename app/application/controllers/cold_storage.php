@@ -4,7 +4,7 @@ class Cold_storage extends CI_Controller {
     
     private $error = false;
     
-    function Cold_storage()
+    function __construct()
     {
         parent::__construct();
         

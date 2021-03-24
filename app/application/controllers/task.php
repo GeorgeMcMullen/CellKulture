@@ -4,7 +4,7 @@ class Task extends CI_Controller {
     
     private $error = false;
     
-    function Task()
+    function __construct()
     {
         parent::__construct();
         
