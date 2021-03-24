@@ -172,6 +172,7 @@ class Task_model extends CI_Model {
 
     public function get_user_tasks($user)
     {
+	// TODO: Turn into DB statements instead of query string that does not recognize table prefixes
         // Get Projects and 5 tasks in each project
         $query = 'SELECT t.*, p.id as project_id, p.name as project_name, p.archive as project_archive
         FROM project p
@@ -203,7 +204,7 @@ class Task_model extends CI_Model {
     {
         $this->db->select(' project.id as project_id, project.name as project_name, project.archive as project_archive');
         $this->db->from('project');
-        $this->db->join('user_project', 'project.id = user_project.project AND user_project.user = '.$user.'');
+        $this->db->join('user_project up', 'project.id = up.project AND up.user = '.$user.'');
         $this->db->order_by('id', 'asc');
         $get = $this->db->get();
 
