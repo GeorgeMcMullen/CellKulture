@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `cell_kulture`
 --
-CREATE DATABASE IF NOT EXISTS `cell_kulture` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+-- CREATE DATABASE IF NOT EXISTS `cell_kulture` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cell_kulture`;
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ USE `cell_kulture`;
 -- Table structure for table `box`
 --
 
-CREATE TABLE IF NOT EXISTS `box` (
+CREATE TABLE IF NOT EXISTS `ck_box` (
   `box_id` int(10) NOT NULL AUTO_INCREMENT,
   `freezerid` int(10) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `box` (
 -- Table structure for table `ci_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `ci_sessions` (
+CREATE TABLE IF NOT EXISTS `ck_ci_sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(16) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 -- Table structure for table `freezer`
 --
 
-CREATE TABLE IF NOT EXISTS `freezer` (
+CREATE TABLE IF NOT EXISTS `ck_freezer` (
   `freezer_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `type` tinyint(4) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `freezer` (
 -- Table structure for table `project`
 --
 
-CREATE TABLE IF NOT EXISTS `project` (
+CREATE TABLE IF NOT EXISTS `ck_project` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user` int(10) unsigned NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `project` (
 -- Table structure for table `settings`
 --
 
-CREATE TABLE IF NOT EXISTS `settings` (
+CREATE TABLE IF NOT EXISTS `ck_settings` (
   `setting_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `setting_name` varchar(50) DEFAULT NULL,
   `setting_value` varchar(150) DEFAULT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`setting_id`, `setting_name`, `setting_value`) VALUES
+INSERT INTO `ck_settings` (`setting_id`, `setting_name`, `setting_value`) VALUES
 (1, 'database_version', '1.7'),
 (2, 'stb_install_date', '2013-12-16 12:23:44');
 
@@ -111,7 +111,7 @@ INSERT INTO `settings` (`setting_id`, `setting_name`, `setting_value`) VALUES
 -- Table structure for table `statistics`
 --
 
-CREATE TABLE IF NOT EXISTS `statistics` (
+CREATE TABLE IF NOT EXISTS `ck_statistics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `statistics` (
 -- Table structure for table `task`
 --
 
-CREATE TABLE IF NOT EXISTS `task` (
+CREATE TABLE IF NOT EXISTS `ck_task` (
   `task_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `project_id` int(10) unsigned NOT NULL,
   `parent_id` int(10) unsigned DEFAULT NULL,
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 -- Table structure for table `task_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `task_comments` (
+CREATE TABLE IF NOT EXISTS `ck_task_comments` (
   `task_comments_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `task_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `task_comments` (
 -- Table structure for table `task_history`
 --
 
-CREATE TABLE IF NOT EXISTS `task_history` (
+CREATE TABLE IF NOT EXISTS `ck_task_history` (
   `task_history_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `task_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned DEFAULT NULL,
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `task_history` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `ck_user` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `links` text,
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `links`, `photo`, `github_username`, `github_token`, `email`, `password`, `level`, `date_created`, `lab`) VALUES
+INSERT INTO `ck_user` (`id`, `name`, `links`, `photo`, `github_username`, `github_token`, `email`, `password`, `level`, `date_created`, `lab`) VALUES
 (1, 'Admin', 'null', '', NULL, NULL, 'admin@gmail.com', 'b5e76e0b976ff5945e711f65bdc0ed3b0c4ce2fe', 1, '2013-12-16 12:20:49', 'Admin');
 
 -- --------------------------------------------------------
@@ -232,7 +232,7 @@ INSERT INTO `user` (`id`, `name`, `links`, `photo`, `github_username`, `github_t
 -- Table structure for table `user_fbox`
 --
 
-CREATE TABLE IF NOT EXISTS `user_fbox` (
+CREATE TABLE IF NOT EXISTS `ck_user_fbox` (
   `user` int(10) unsigned NOT NULL,
   `fbox` int(10) unsigned NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `user_fbox` (
 -- Table structure for table `user_freezer`
 --
 
-CREATE TABLE IF NOT EXISTS `user_freezer` (
+CREATE TABLE IF NOT EXISTS `ck_user_freezer` (
   `user` int(10) unsigned NOT NULL,
   `freezer` int(10) unsigned NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `user_freezer` (
 -- Table structure for table `user_project`
 --
 
-CREATE TABLE IF NOT EXISTS `user_project` (
+CREATE TABLE IF NOT EXISTS `ck_user_project` (
   `user` int(10) unsigned NOT NULL,
   `project` int(10) unsigned NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `user_project` (
 -- Table structure for table `user_vial`
 --
 
-CREATE TABLE IF NOT EXISTS `user_vial` (
+CREATE TABLE IF NOT EXISTS `ck_user_vial` (
   `user` int(10) NOT NULL,
   `vial` int(10) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `user_vial` (
 -- Table structure for table `vial`
 --
 
-CREATE TABLE IF NOT EXISTS `vial` (
+CREATE TABLE IF NOT EXISTS `ck_vial` (
   `vial_id` int(10) NOT NULL AUTO_INCREMENT,
   `boxid` int(10) NOT NULL,
   `taskid` int(10) NOT NULL,
@@ -297,23 +297,30 @@ CREATE TABLE IF NOT EXISTS `vial` (
 --
 -- Constraints for table `task`
 --
-ALTER TABLE `task`
-  ADD CONSTRAINT `task_stbfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `task_stbfk_2` FOREIGN KEY (`parent_id`) REFERENCES `task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `ck_task`
+  ADD CONSTRAINT `ck_task_stbfk_1` FOREIGN KEY (`project_id`) REFERENCES `ck_project` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ck_task_stbfk_2` FOREIGN KEY (`parent_id`) REFERENCES `ck_task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `task_comments`
 --
-ALTER TABLE `task_comments`
-  ADD CONSTRAINT `task_comments_stbfk_1` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `ck_task_comments`
+  ADD CONSTRAINT `ck_task_comments_stbfk_1` FOREIGN KEY (`task_id`) REFERENCES `ck_task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `task_history`
 --
-ALTER TABLE `task_history`
-  ADD CONSTRAINT `task_history_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `task_history_stbfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `ck_task_history`
+  ADD CONSTRAINT `ck_task_history_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `ck_task` (`task_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ck_task_history_stbfk_2` FOREIGN KEY (`user_id`) REFERENCES `ck_user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- SQL to drop tables if needed
+--
+-- DROP TABLE `ck_box`, `ck_ci_sessions`, `ck_freezer`, `ck_settings`, `ck_statistics`, `ck_task_comments`, `ck_task_history`, `ck_user`, `ck_user_fbox`, `ck_user_freezer`, `ck_user_project`, `ck_user_vial`, `ck_vial`;
+-- DROP TABLE `ck_task`;
+-- DROP TABLE `ck_project`;
