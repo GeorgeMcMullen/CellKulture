@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `cell_kulture`
 --
--- CREATE DATABASE IF NOT EXISTS `cell_kulture` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `cell_kulture` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cell_kulture`;
 
 -- --------------------------------------------------------
