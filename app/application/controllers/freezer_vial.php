@@ -189,7 +189,7 @@ class Freezer_vial extends CI_Controller {
         $array_locations = unserialize($data['cell']);
         
         if($data['cell'] == Null){
-            $array_locations = $data['cell'];
+	    $array_locations = array();
         }else{
             $array_locations = unserialize($data['cell']);
         }
